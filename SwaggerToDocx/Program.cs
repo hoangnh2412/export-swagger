@@ -15,12 +15,12 @@ namespace SwaggerToDocx
         {
             Console.WriteLine("Hello World!");
 
-            var pathInput = Path.Combine(AppContext.BaseDirectory, "api.json");
+            var pathInput = Path.Combine(AppContext.BaseDirectory, "swagger.json");
             var json = File.ReadAllText(pathInput);
             json = json.Replace("$ref", "ref");
             var document = JsonConvert.DeserializeObject<DocumentModel>(json);
 
-            var pathOutput = Path.Combine(AppContext.BaseDirectory, "api.xlsx");
+            var pathOutput = Path.Combine(AppContext.BaseDirectory, "document.xlsx");
             if (File.Exists(pathOutput))
                 File.Delete(pathOutput);
 
